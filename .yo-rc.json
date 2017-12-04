@@ -1,0 +1,21 @@
+{
+  "generator-cpp": {
+    "projectName": "Spacer",
+    "projectDescription": "Spacer core library.",
+    "projectPath": "Spacer/Core",
+    "projectPackage": "spacer-core",
+    "projectLicense": "MIT License",
+    "authorName": "Lucas Brémond",
+    "authorEmail": "lucas.bremond@gmail.com",
+    "companyName": "Lucas Brémond",
+    "companyId": "com.bremond.lucas",
+    "companyWebsite": "lucas.bremond.info",
+    "buildSharedLib": true,
+    "buildStaticLib": false,
+    "buildUtility": false,
+    "buildTest": true,
+    "unitTestType": "gtest",
+    "buildCodeCoverage": false,
+    "buildDocumentation": true
+  }
+}
