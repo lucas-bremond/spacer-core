@@ -1,14 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-///	Copyright (C) 2017 by Lucas Brémond
+/// Copyright (C) 2017 by Lucas Brémond
 ///
-///	This file is part of the Spacer project.
+/// This file is part of the Spacer project.
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///	@file						Spacer/Core/Types/String.cpp
-///	@author						Lucas Brémond <lucas.bremond@gmail.com>
-///	@date						2 Dec 2017
+/// @file                       Spacer/Core/Types/String.cpp
+/// @author                     Lucas Brémond <lucas.bremond@gmail.com>
+/// @date                       2 Dec 2017
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -27,41 +27,41 @@ namespace types
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-                                String::String								( )
+                                String::String                              ( )
                                 :   std::string()
 {
 
 }
 
-    					        String::String								(	const	std::string&				aString								)
+                                String::String                              (   const   std::string&                aString                             )
                                 :   std::string(aString)
 {
 
 }
 
-                                String::~String								( )
+                                String::~String                             ( )
 {
     
 }
 
-bool					        String::isEmpty								( ) const
+bool                            String::isEmpty                             ( ) const
 {
     return this->empty() ;
 }
 
-bool					        String::isUppercase							( ) const
+bool                            String::isUppercase                         ( ) const
 
 {
     return (!this->empty()) && !std::any_of(this->begin(), this->end(), [] (char ch) { return ::islower(ch) ; }) ;
 }
 
-bool					        String::isLowercase							( ) const
+bool                            String::isLowercase                         ( ) const
 
 {
     return (!this->empty()) && !std::any_of(this->begin(), this->end(), [] (char ch) { return ::isupper(ch) ; }) ;
 }
 
-Size					        String::getLength							( ) const
+Size                            String::getLength                           ( ) const
 {
     return this->length() ;
 }

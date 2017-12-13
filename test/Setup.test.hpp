@@ -1,14 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-///	Copyright (C) 2017 by Lucas Brémond
+/// Copyright (C) 2017 by Lucas Brémond
 ///
-///	This file is part of the Spacer project.
+/// This file is part of the Spacer project.
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///	@file						Spacer/Core/Setup.test.hpp
-///	@author						Lucas Brémond <lucas.bremond@gmail.com>
-///	@date						2 Dec 2017
+/// @file                       Spacer/Core/Setup.test.hpp
+/// @author                     Lucas Brémond <lucas.bremond@gmail.com>
+/// @date                       2 Dec 2017
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -30,7 +30,7 @@ namespace global
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-std::string						someGlobalString ;
+std::string                     someGlobalString ;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -41,41 +41,41 @@ std::string						someGlobalString ;
 class Environment : public testing::Environment
 {
 
-	public:
+    public:
 
-								Environment									(	const	std::string&				aCommandLineArg						)
-								:	commandLineArg_(aCommandLineArg)
-		{
+                                Environment                                 (   const   std::string&                aCommandLineArg                     )
+                                :   commandLineArg_(aCommandLineArg)
+        {
 
-			if (commandLineArg_ != "")
-			{
-				global::someGlobalString										=		commandLineArg_ ;
-			}
-			else
-			{
-				global::someGlobalString										=		"World" ;
-			}
-			
-		}
+            if (commandLineArg_ != "")
+            {
+                global::someGlobalString = commandLineArg_ ;
+            }
+            else
+            {
+                global::someGlobalString = "World" ;
+            }
+            
+        }
 
-		virtual					~Environment								( )
-		{
+        virtual                 ~Environment                                ( )
+        {
 
-		}
-		
-		virtual void			SetUp										( )
-		{
+        }
+        
+        virtual void            SetUp                                       ( )
+        {
 
-		}
-		
-		virtual void			TearDown									( )
-		{
+        }
+        
+        virtual void            TearDown                                    ( )
+        {
 
-		}
+        }
 
-	private:
+    private:
 
-		std::string				commandLineArg_ ;
+        std::string             commandLineArg_ ;
 
 } ;
 

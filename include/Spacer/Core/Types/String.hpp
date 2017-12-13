@@ -1,14 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-///	Copyright (C) 2017 by Lucas Brémond
+/// Copyright (C) 2017 by Lucas Brémond
 ///
-///	This file is part of the Spacer project.
+/// This file is part of the Spacer project.
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///	@file						Spacer/Core/Types/String.hpp
-///	@author						Lucas Brémond <lucas.bremond@gmail.com>
-///	@date						2 Dec 2017
+/// @file                       Spacer/Core/Types/String.hpp
+/// @author                     Lucas Brémond <lucas.bremond@gmail.com>
+/// @date                       2 Dec 2017
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -35,7 +35,7 @@ using spacer::core::types::Size ;
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///	@brief						A string class
+/// @brief                      A string class
 
 class String : public std::string
 {
@@ -44,19 +44,19 @@ class String : public std::string
 
         using std::string::string ;
 
-                                String										( ) ;
+                                String                                      ( ) ;
 
-                                String										(	const	std::string&				aString								) ;
+                                String                                      (   const   std::string&                aString                             ) ;
 
-                                ~String										( ) ;
+                                ~String                                     ( ) ;
 
-        bool					isEmpty										( ) const ;
+        bool                    isEmpty                                     ( ) const ;
 
-        bool					isUppercase									( ) const ;
+        bool                    isUppercase                                 ( ) const ;
 
-        bool					isLowercase									( ) const ;
+        bool                    isLowercase                                 ( ) const ;
 
-        Size					getLength									( ) const ;
+        Size                    getLength                                   ( ) const ;
 
         static String           Empty                                       ( ) ;
 

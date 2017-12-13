@@ -1,14 +1,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-///	Copyright (C) 2017 by Lucas Brémond
+/// Copyright (C) 2017 by Lucas Brémond
 ///
-///	This file is part of the Spacer project.
+/// This file is part of the Spacer project.
 ///
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-///	@file						Spacer/Core/Main.test.cxx
-///	@author						Lucas Brémond <lucas.bremond@gmail.com>
-///	@date						2 Dec 2017
+/// @file                       Spacer/Core/Main.test.cxx
+/// @author                     Lucas Brémond <lucas.bremond@gmail.com>
+/// @date                       2 Dec 2017
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -16,15 +16,15 @@
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int 							main 										(			int							argc,
-																						char**						argv								)
+int                             main                                        (           int                         argc,
+                                                                                        char**                      argv                                )
 {
 
-	::testing::InitGoogleTest(&argc, argv) ;
+    ::testing::InitGoogleTest(&argc, argv) ;
 
-	::testing::AddGlobalTestEnvironment(new spacer::core::test::Environment(argc >= 2 ? argv[1] : "")) ;
-	
-	return RUN_ALL_TESTS() ;
+    ::testing::AddGlobalTestEnvironment(new spacer::core::test::Environment(argc >= 2 ? argv[1] : "")) ;
+    
+    return RUN_ALL_TESTS() ;
 
 }
 
