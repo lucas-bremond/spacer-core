@@ -32,7 +32,7 @@ OPTION (BUILD_SHARED_LIBRARY "Build shared library." ON)
 OPTION (BUILD_STATIC_LIBRARY "Build static library." OFF)
 OPTION (BUILD_UTILITY "Build utility." OFF)
 OPTION (BUILD_UNIT_TESTS "Build tests" ON)
-OPTION (BUILD_CODE_COVERAGE "Build code coverage" OFF)
+OPTION (BUILD_CODE_COVERAGE "Build code coverage" ON)
 OPTION (BUILD_DOCUMENTATION "Build documentation" OFF)
 OPTION (INSTALL_DATA "Install data" ON)
 
@@ -376,7 +376,7 @@ IF (BUILD_UNIT_TESTS)
 
         APPEND_COVERAGE_COMPILER_FLAGS ()
 
-        SET (COVERAGE_EXCLUDES "*.test.cpp" "*/include/gtest/*" "*/c++/v1/*" "/usr/include/*")
+        SET (COVERAGE_EXCLUDES "*.test.cpp" "*/include/gtest/*" "*/c++/v1/*" "/usr/include/*" "/usr/local/*" "*/include/boost/*" "*/c++/7/*")
 
         SETUP_TARGET_FOR_COVERAGE (
             NAME ${COVERAGE_TARGET}

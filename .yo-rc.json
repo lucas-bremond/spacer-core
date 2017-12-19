@@ -15,7 +15,7 @@
     "buildUtility": false,
     "buildTest": true,
     "unitTestType": "gtest",
-    "buildCodeCoverage": false,
+    "buildCodeCoverage": true,
     "buildDocumentation": true
   }
 }

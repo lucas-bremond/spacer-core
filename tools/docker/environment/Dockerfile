@@ -34,7 +34,7 @@ RUN dnf install -y \
     ncurses ncurses-devel \
     python python-devel \
     && dnf group install -y "Development Tools" \
-    && dnf install -y gcc-c++ gdb \
+    && dnf install -y gcc-c++ gdb lcov \
     && dnf clean all
 
 ## CMake [3.10.0]
