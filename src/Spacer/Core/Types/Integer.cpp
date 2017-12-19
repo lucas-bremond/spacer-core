@@ -927,10 +927,36 @@ Integer                         Integer::NegativeInfinity                   ( )
     return Integer(Integer::Type::NegativeInfinity, std::numeric_limits<Integer::ValueType>::min()) ;
 }
 
-// Integer                         Integer::String                             (   const   types::String&              aString                             )
-// {
+Integer                         Integer::String                             (   const   types::String&              aString                             )
+{
+
+    if (aString.isEmpty() || (aString == "Undefined"))
+    {
+        return Integer::Undefined() ;
+    }
+
+    if ((aString == "Inf") || (aString == "+Inf"))
+    {
+        return Integer::PositiveInfinity() ;
+    }
+
+    if (aString == "-Inf")
+    {
+        return Integer::NegativeInfinity() ;
+    }
+
+    try
+	{
+		return Integer(boost::lexical_cast<Integer::ValueType>(aString)) ;
+	}
+	catch (const boost::bad_lexical_cast&)
+	{
+		throw spacer::core::error::RuntimeError("Cannot cast string [" + aString + "] to Integer.") ;
+	}
+
+    return Integer::Undefined() ;
     
-// }
+}
 
 // Integer                         Integer::Object                             (   const   ctnr::Object&               anObject                            )
 // {

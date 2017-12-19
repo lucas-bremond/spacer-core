@@ -2603,7 +2603,24 @@ TEST(Spacer_Core_Types_Integer, String)
 
     using spacer::core::types::Integer ;
 
-    FAIL() ;
+    EXPECT_FALSE(Integer::String("").isDefined()) ;
+    EXPECT_FALSE(Integer::String("Undefined").isDefined()) ;
+
+    EXPECT_EQ(+0, Integer::String("0")) ;
+    EXPECT_EQ(-1, Integer::String("-1")) ;
+    EXPECT_EQ(+0, Integer::String("+0")) ;
+    EXPECT_EQ(+1, Integer::String("+1")) ;
+
+    EXPECT_EQ(-2147483648, Integer::String("-2147483648")) ;
+    EXPECT_EQ(+2147483647, Integer::String("+2147483647")) ;
+
+    EXPECT_ANY_THROW(Integer::String("-2147483649")) ;
+    EXPECT_ANY_THROW(Integer::String("2147483648")) ;
+    EXPECT_ANY_THROW(Integer::String("+2147483648")) ;
+
+    EXPECT_TRUE(Integer::String("-Inf").isNegativeInfinity()) ;
+    EXPECT_TRUE(Integer::String("Inf").isPositiveInfinity()) ;
+    EXPECT_TRUE(Integer::String("+Inf").isPositiveInfinity()) ;
 
 }
 
