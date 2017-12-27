@@ -946,13 +946,13 @@ Integer                         Integer::String                             (   
     }
 
     try
-	{
-		return Integer(boost::lexical_cast<Integer::ValueType>(aString)) ;
-	}
-	catch (const boost::bad_lexical_cast&)
-	{
-		throw spacer::core::error::RuntimeError("Cannot cast string [" + aString + "] to Integer.") ;
-	}
+    {
+        return Integer(boost::lexical_cast<Integer::ValueType>(aString)) ;
+    }
+    catch (const boost::bad_lexical_cast&)
+    {
+        throw spacer::core::error::RuntimeError("Cannot cast string [" + aString + "] to Integer.") ;
+    }
 
     return Integer::Undefined() ;
     

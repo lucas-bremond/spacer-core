@@ -1,0 +1,105 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+///
+/// Copyright (C) 2017 by Lucas Brémond
+///
+/// This file is part of the Spacer project.
+///
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/// @file                       Spacer/Core/Logger/Sinks/Console.hpp
+/// @author                     Lucas Brémond <lucas.bremond@gmail.com>
+/// @date                       20 Dec 2017
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#ifndef __Spacer_Core_Logger_Sinks_Console__
+#define __Spacer_Core_Logger_Sinks_Console__
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#include <Spacer/Core/Types/Unique.hpp>
+#include <Spacer/Core/Logger/Sinks/Sink.hpp>
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+namespace spacer
+{
+namespace core
+{
+namespace logger
+{
+namespace sinks
+{
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+using spacer::core::types::Unique ;
+using spacer::core::logger::Severity ;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+/// @brief                      Log console sink
+
+class Console : public Sink
+{
+
+    public:
+
+        enum class Color
+        {
+
+            Black,
+            Red,
+            Green,
+            Yellow,
+            Blue,
+            Magenta,
+            Cyan,
+            LightGray,
+            DarkGray,
+            LightRed,
+            LightGreen,
+            LightYellow,
+            LightBlue,
+            LightMagenta,
+            LightCyan,
+            White
+
+        } ;
+
+                                Console                                     (   const   Severity&                   aSeverity                           ) ;
+
+                                Console                                     (   const   Console&                    aConsole                            ) ;
+
+        virtual                 ~Console                                    ( ) override ;
+
+        virtual Console*        clone                                       ( ) const override ;
+
+        virtual void            enable                                      ( ) override ;
+        virtual void            disable                                     ( ) override ;
+
+        static String            ColorizeMessage                            (   const   String&                     aMessage,
+                                                                                const   Console::Color&             aColor                              ) ;
+
+    private:
+
+        class Impl ;
+
+        friend class Console::Impl ;
+
+        Unique<Console::Impl>   implUPtr_ ;
+
+} ;
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+}
+}
+}
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+#endif
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -51,15 +51,15 @@ RUN mkdir /tmp/cmake \
 
 # Dependencies
 
-## Boost [1.65.0]
+## Boost [1.66.0]
 
 RUN mkdir /tmp/boost \
     && cd /tmp/boost \
-    && wget --quiet http://sourceforge.net/projects/boost/files/boost/1.65.0/boost_1_65_0.tar.gz \
-    && tar -xvf boost_1_65_0.tar.gz \
-    && cd boost_1_65_0 \
+    && wget --quiet http://sourceforge.net/projects/boost/files/boost/1.66.0/boost_1_66_0.tar.gz \
+    && tar -xvf boost_1_66_0.tar.gz \
+    && cd boost_1_66_0 \
     && ./bootstrap.sh \
-    && ./b2 -j ${cpu_count} link=static install \
+    && ./b2 -j ${cpu_count} link=static cxxflags=-fPIC install \
     && rm -rf /tmp/boost
 
 ## Eigen [3.3.4]
