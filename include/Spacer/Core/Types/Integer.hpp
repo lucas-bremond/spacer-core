@@ -61,6 +61,13 @@ class Integer
         bool                    operator >                                  (   const   Integer&                    anInteger                           ) const ;
         bool                    operator >=                                 (   const   Integer&                    anInteger                           ) const ;
 
+        bool                    operator ==                                 (   const   Integer::ValueType&         anInteger                           ) const ;
+        bool                    operator !=                                 (   const   Integer::ValueType&         anInteger                           ) const ;
+        bool                    operator <                                  (   const   Integer::ValueType&         anInteger                           ) const ;
+        bool                    operator <=                                 (   const   Integer::ValueType&         anInteger                           ) const ;
+        bool                    operator >                                  (   const   Integer::ValueType&         anInteger                           ) const ;
+        bool                    operator >=                                 (   const   Integer::ValueType&         anInteger                           ) const ;
+
         Integer                 operator +                                  (   const   Integer&                    anInteger                           ) const ;
         Integer                 operator -                                  (   const   Integer&                    anInteger                           ) const ;
         Integer                 operator *                                  (   const   Integer&                    anInteger                           ) const ;

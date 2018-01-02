@@ -78,6 +78,36 @@ bool                            Integer::operator >=                        (   
     return (type_ == Integer::Type::Defined) && (anInteger.type_ == Integer::Type::Defined) && (value_ >= anInteger.value_) ;
 }
 
+bool                            Integer::operator ==                        (   const   Integer::ValueType&         anInteger                           ) const
+{
+    return (type_ == Integer::Type::Defined) && (value_ == anInteger) ;
+}
+
+bool                            Integer::operator !=                        (   const   Integer::ValueType&         anInteger                           ) const
+{
+    return (type_ == Integer::Type::Defined) && (value_ != anInteger) ;
+}
+
+bool                            Integer::operator <                         (   const   Integer::ValueType&         anInteger                           ) const
+{
+    return (type_ == Integer::Type::Defined) && (value_ < anInteger) ;
+}
+
+bool                            Integer::operator <=                        (   const   Integer::ValueType&         anInteger                           ) const
+{
+    return (type_ == Integer::Type::Defined) && (value_ <= anInteger) ;
+}
+
+bool                            Integer::operator >                         (   const   Integer::ValueType&         anInteger                           ) const
+{
+    return (type_ == Integer::Type::Defined) && (value_ > anInteger) ;
+}
+
+bool                            Integer::operator >=                        (   const   Integer::ValueType&         anInteger                           ) const
+{
+    return (type_ == Integer::Type::Defined) && (value_ >= anInteger) ;
+}
+
 Integer                         Integer::operator +                         (   const   Integer&                    anInteger                           ) const
 {
 

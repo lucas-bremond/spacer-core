@@ -64,15 +64,25 @@ TEST(Spacer_Core_Logger, Test)
 
     Logger logger = Logger::Console(Severity::Info) ;
 
-    // logger << 1 ;
-    // logger << 123.456 ;
-    // logger << 'a' ;
-    // logger << "Hello World!" ;
+    logger << 1 ;
+    logger << 123.456 ;
+    logger << 'a' ;
+    logger << "Hello World!" ;
     logger << "Hello" << " " << "World!" ;
-    // logger << TestClass() ;
-    // std::cout << TestClass() << std::endl ;
+    logger << TestClass() ;
 
-    // LOG_INFO(logger) << TestClass() ;
+    LOG_TRACE(logger) << TestClass() << " !!!" ;
+    LOG_DEBUG(logger) << TestClass() << " !!!" ;
+    LOG_INFO(logger) << TestClass() << " !!!" ;
+    LOG_WARNING(logger) << TestClass() << " !!!" ;
+    LOG_ERROR(logger) << TestClass() << " !!!" ;
+
+    GLOBAL_LOG_TRACE << "Hello " << " " << "World!" ;
+    GLOBAL_LOG_DEBUG << "Hello " << " " << "World!" ;
+    GLOBAL_LOG_INFO << "Hello " << " " << "World!" ;
+    GLOBAL_LOG_WARNING << "Hello " << " " << "World!" ;
+    GLOBAL_LOG_ERROR << "Hello " << " " << "World!" ;
+    GLOBAL_LOG_FATAL << "Hello " << " " << "World!" ;
 
 }
 
