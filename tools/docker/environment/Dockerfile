@@ -37,13 +37,13 @@ RUN dnf install -y \
     && dnf install -y gcc-c++ gdb lcov \
     && dnf clean all
 
-## CMake [3.10.0]
+## CMake [3.10.3]
 
 RUN mkdir /tmp/cmake \
     && cd /tmp/cmake \
-    && wget --quiet https://cmake.org/files/v3.10/cmake-3.10.0.tar.gz \
-    && tar -xvf cmake-3.10.0.tar.gz \
-    && cd cmake-3.10.0 \
+    && wget --quiet https://cmake.org/files/v3.10/cmake-3.10.3.tar.gz \
+    && tar -xvf cmake-3.10.3.tar.gz \
+    && cd cmake-3.10.3 \
     && ./bootstrap \
     && make -j ${cpu_count} \
     && make install \
@@ -61,6 +61,22 @@ RUN mkdir /tmp/boost \
     && ./bootstrap.sh \
     && ./b2 -j ${cpu_count} link=static cxxflags=-fPIC install \
     && rm -rf /tmp/boost
+
+## Boost.NumPy
+
+RUN pip install --upgrade pip \
+    && pip install numpy
+
+RUN mkdir /tmp/boost.numpy \
+    && cd /tmp/boost.numpy \
+    && git clone https://github.com/ndarray/Boost.NumPy.git \
+    && cd Boost.NumPy \
+    && mkdir build \
+    && cd build \
+    && cmake -DBOOST_ROOT=/usr/local/ -DBoost_USE_STATIC_LIBS=YES -DLIBRARY_TYPE=STATIC -DCMAKE_INSTALL_PREFIX=/usr/local .. \
+    && make -j ${cpu_count} \
+    && make install \
+    && rm -rf /tmp/boost.numpy
 
 ## Eigen [3.3.4]
 

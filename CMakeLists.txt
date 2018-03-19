@@ -1,6 +1,6 @@
 ########################################################################################################################################################
 ###
-### Copyright (C) 2017 by Lucas Brémond
+### Copyright (C) 2018 by Lucas Brémond
 ###
 ### This file is part of the Spacer project.
 ###
@@ -32,6 +32,7 @@ OPTION (BUILD_SHARED_LIBRARY "Build shared library." ON)
 OPTION (BUILD_STATIC_LIBRARY "Build static library." OFF)
 OPTION (BUILD_UTILITY "Build utility." OFF)
 OPTION (BUILD_UNIT_TESTS "Build tests" ON)
+OPTION (BUILD_PYTHON_BINDINGS "Build Python bindings." ON)
 OPTION (BUILD_CODE_COVERAGE "Build code coverage" ON)
 OPTION (BUILD_DOCUMENTATION "Build documentation" OFF)
 OPTION (INSTALL_DATA "Install data" ON)
@@ -405,6 +406,14 @@ IF (BUILD_UNIT_TESTS)
         )
 
     ENDIF ()
+
+ENDIF ()
+
+### Python Bindings
+
+IF (BUILD_PYTHON_BINDINGS)
+
+    ADD_SUBDIRECTORY ("${PROJECT_SOURCE_DIR}/share/python")
 
 ENDIF ()
 
