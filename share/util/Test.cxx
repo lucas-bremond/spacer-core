@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-/// Copyright (C) 2017 by Lucas Brémond
+/// Copyright (C) 2018 by Lucas Brémond
 ///
 /// This file is part of the Spacer project.
 ///
@@ -59,6 +59,7 @@ int                             main                                        ( )
 
     LOG_SCOPE("Test") ;
 
+    using spacer::core::types::Integer ;
     using spacer::core::Logger ;
     using spacer::core::logger::Severity ;
 
@@ -83,6 +84,13 @@ int                             main                                        ( )
     GLOBAL_LOG_WARNING << "Hello " << " " << "World!" ;
     GLOBAL_LOG_ERROR << "Hello " << " " << "World!" ;
     GLOBAL_LOG_FATAL << "Hello " << " " << "World!" ;
+
+    Integer a = 6 ;
+
+    if (a < 5)
+    {
+        
+    }
 
 }
 

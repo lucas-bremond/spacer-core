@@ -1,6 +1,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///
-/// Copyright (C) 2017 by Lucas Brémond
+/// Copyright (C) 2018 by Lucas Brémond
 ///
 /// This file is part of the Spacer project.
 ///
@@ -15,10 +15,9 @@
 #ifndef __Spacer_Core_Types_Real__
 #define __Spacer_Core_Types_Real__
 
-#include <ostream>
-
+#include <Spacer/Core/Types/Sign.hpp>
 #include <Spacer/Core/Types/String.hpp>
-#include <Spacer/Core/Types/Object.hpp>
+#include <Spacer/Core/Containers/Object.hpp>
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -46,7 +45,9 @@ class Real
 
                                 Real                                        ( ) = delete ;
 
-                                Real                                        (   const   Real::ValueType&            aReal                               ) ;
+                                Real                                        (           Real::ValueType             aReal                               ) ;
+
+        Real&                   operator =                                  (           Real::ValueType             aReal                               ) ;
 
         bool                    operator ==                                 (   const   Real&                       aReal                               ) const ;
         bool                    operator !=                                 (   const   Real&                       aReal                               ) const ;
@@ -54,6 +55,13 @@ class Real
         bool                    operator <=                                 (   const   Real&                       aReal                               ) const ;
         bool                    operator >                                  (   const   Real&                       aReal                               ) const ;
         bool                    operator >=                                 (   const   Real&                       aReal                               ) const ;
+
+        bool                    operator ==                                 (   const   Real::ValueType&            aReal                               ) const ;
+        bool                    operator !=                                 (   const   Real::ValueType&            aReal                               ) const ;
+        bool                    operator <                                  (   const   Real::ValueType&            aReal                               ) const ;
+        bool                    operator <=                                 (   const   Real::ValueType&            aReal                               ) const ;
+        bool                    operator >                                  (   const   Real::ValueType&            aReal                               ) const ;
+        bool                    operator >=                                 (   const   Real::ValueType&            aReal                               ) const ;
 
         Real                    operator +                                  (   const   Real&                       aReal                               ) const ;
         Real                    operator -                                  (   const   Real&                       aReal                               ) const ;
@@ -87,29 +95,34 @@ class Real
         Real                    operator +                                  ( ) const ;
         Real                    operator -                                  ( ) const ;
 
-        Real&                   operator ++                                 ( ) ;
-        Real&                   operator --                                 ( ) ;
-
-        Real&                   operator ++                                 (            Real::ValueType            aDouble                             ) ;
-        Real&                   operator --                                 (            Real::ValueType            aDouble                             ) ;
-
                                 operator Real::ValueType                    ( ) const ;
 
-                                operator const Real::ValueType&             ( ) const ;
-
-                                operator Real::ValueType&                   ( ) ;
-
-        friend std::ostream&    operator <<                                 (            std::ostream&              anOutputStream,
-                                                                                const    Real&                      aReal                               ) ;
+        friend std::ostream&    operator <<                                 (           std::ostream&               anOutputStream,
+                                                                                const   Real&                       aReal                               ) ;
 
         bool                    isDefined                                   ( ) const ;
-        bool                    isInfinite                                  ( ) const ;
+        bool                    isZero                                      ( ) const ;
+        bool                    isPositive                                  ( ) const ;
+        bool                    isNegative                                  ( ) const ;
+        bool                    isStrictlyPositive                          ( ) const ;
+        bool                    isStrictlyNegative                          ( ) const ;
+        bool                    isInfinity                                  ( ) const ;
+        bool                    isPositiveInfinity                          ( ) const ;
+        bool                    isNegativeInfinity                          ( ) const ;
+
+        types::Sign             getSign                                     ( ) const ;
+
+        types::String           getString                                   ( ) const ;
 
         ctnr::Object            getObject                                   ( ) const ;
 
         static Real             Undefined                                   ( ) ;
 
-        static Real             Infinite                                    ( ) ;
+        static Real             Zero                                        ( ) ;
+
+        static Real             PositiveInfinity                            ( ) ;
+
+        static Real             NegativeInfinity                            ( ) ;
 
         static Real             String                                      (   const   types::String&              aString                             ) ;
 
@@ -121,8 +134,9 @@ class Real
         {
             
             Undefined,
-            Infinite,
-            Defined
+            Defined,
+            PositiveInfinity,
+            NegativeInfinity
 
         } ;
 
